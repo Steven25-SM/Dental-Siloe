@@ -1,0 +1,137 @@
+<header class="fixed top-0 left-0 z-50 w-full border-b border-white/10 bg-[#0B53A8]/95 backdrop-blur">
+  <nav
+    class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8"
+    aria-label="Navegación principal"
+  >
+    <a
+      href="#inicio"
+      class="text-xl font-bold tracking-tight text-white"
+      aria-label="Dental Siloé - Inicio"
+    >
+      <img class="h-16" src="logotipo.png" alt="">
+    </a>
+
+    <div class="hidden items-center gap-8 md:flex">
+      <a
+        href="#inicio"
+        class="font-medium text-white transition hover:text-[#FFC72C]"
+      >
+        Inicio
+      </a>
+
+     <a
+  href="#servicios"
+  class="text-base font-medium text-white transition hover:text-[#FFC72C]"
+>
+  Servicios
+</a>
+
+<a
+  href="#nosotros"
+  class="text-base font-medium text-white transition hover:text-[#FFC72C]"
+>
+  Nosotros
+</a>
+
+<a
+  href="#contacto"
+  class="text-base font-medium text-white transition hover:text-[#FFC72C]"
+>
+  Contacto
+</a>
+      <a
+        href="#contacto"
+        class="rounded-full bg-white px-5 py-2.5 font-medium font-semibold text-[#0B53A8] transition hover:bg-[#FFC72C]"
+      >
+        Agendar cita
+      </a>
+    </div>
+
+    <button
+      id="menu-button"
+      type="button"
+      class="rounded-lg p-2 text-white md:hidden"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="currentColor"
+        class="h-7 w-7"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+        />
+      </svg>
+    </button>
+  </nav>
+
+  <div
+    id="mobile-menu"
+    class="hidden border-t border-white/10 bg-[#0B53A8] px-6 pb-6 md:hidden"
+  >
+    <div class="flex flex-col gap-2 pt-4">
+      <a
+        href="#inicio"
+        class="rounded-lg px-4 py-3 font-medium text-white transition hover:bg-white/10"
+      >
+        Inicio
+      </a>
+
+      <a
+        href="#servicios"
+        class="rounded-lg px-4 py-3 font-medium text-white transition hover:bg-white/10"
+      >
+        Servicios
+      </a>
+
+      <a
+        href="#nosotros"
+        class="rounded-lg px-4 py-3 font-medium text-white transition hover:bg-white/10"
+      >
+        Nosotros
+      </a>
+
+      <a
+        href="#contacto"
+        class="rounded-lg px-4 py-3 font-medium text-white transition hover:bg-white/10"
+      >
+        Contacto
+      </a>
+
+      <a
+        href="#contacto"
+        class="mt-2 rounded-full bg-white px-5 py-3 text-center font-semibold text-[#0B53A8]"
+      >
+        Agendar cita
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const menuButton = document.querySelector("#menu-button");
+  const mobileMenu = document.querySelector("#mobile-menu");
+
+  menuButton?.addEventListener("click", () => {
+    const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+
+    menuButton.setAttribute("aria-expanded", String(!isOpen));
+    mobileMenu?.classList.toggle("hidden");
+  });
+
+  const mobileLinks = mobileMenu?.querySelectorAll("a");
+
+  mobileLinks?.forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileMenu?.classList.add("hidden");
+      menuButton?.setAttribute("aria-expanded", "false");
+    });
+  });
+</script>
