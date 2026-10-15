@@ -265,24 +265,27 @@ body { color:var(--ink); font-size:17px; }
 
 @media (max-width: 767px) {
   header {
-    background: #ffffff !important;
-    border-bottom: 1px solid #e5edf5;
+    background: #1F6FEB !important;
+    border-bottom: none;
   }
 
   #mobile-menu {
-    background: #ffffff !important;
+    background: #083A7A !important;
   }
 
   #mobile-menu a {
-    color: #0b2f63;
+    color: #FFFFFF;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   }
 
-  #mobile-menu a:hover {
-    background: #eaf6ff;
+  #mobile-menu a:hover,
+  #mobile-menu a[aria-current="page"] {
+    background: rgba(255, 255, 255, 0.10);
   }
 
   #mobile-menu a.mobile-cta {
-    color: #ffffff;
-    background: #ff871f;
+    background: #FF8A1F;
+    color: #FFFFFF;
+    border-bottom: none;
   }
 }
