@@ -2,29 +2,18 @@
 import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
 ---
-
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-	<link rel="icon" type="image/svg+xml" href="logo.png"/>
-
-    <meta
-      name="description"
-      content="Dental Siloé — atención odontológica en Ate, Lima. Conoce nuestro consultorio y solicita información sobre nuestros servicios."
-    />
-
-    <meta name="theme-color" content="#0B53A8" />
-
-    <title>Dental Siloé | Atención odontológica en Ate</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Dental Siloé: atención odontológica en Ate, Lima. Conoce nuestro consultorio, ubicación y horarios de atención." />
+    <meta name="theme-color" content="#082e61" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <title>Dental Siloé | Consultorio odontológico en Ate, Lima</title>
   </head>
-
-  <body class="bg-white text-[#111111] antialiased">
-    <Navbar />
-
-    <main>
-      <slot />
-    </main>
-  </body>
+  <body class="antialiased"><Navbar /><main><slot /></main></body>
 </html>
