@@ -238,3 +238,27 @@ body { color:var(--ink); font-size:17px; }
   .whatsapp-launcher { width:76px; height:76px; }
   .whatsapp-launcher .whatsapp-symbol { width:72px; height:72px; }
 }
+
+/* V10: barra móvil con SOLO logo y botón hamburguesa. */
+@media (max-width:1023px) {
+  .mobile-header-nav { display:flex; justify-content:space-between; }
+  .mobile-header-nav .mobile-brand { display:flex; margin-right:auto; }
+  .mobile-header-nav .mobile-menu-toggle { display:grid; margin-left:auto; }
+  .mobile-header-nav .desktop-header-cta { display:none !important; }
+}
+@media (min-width:1024px) {
+  .mobile-header-nav .mobile-brand,
+  .mobile-header-nav .mobile-menu-toggle { display:none !important; }
+}
+/* El Hero ya no lleva cartel superpuesto. WhatsApp usa tu icono transparente. */
+.whatsapp-launcher, .whatsapp-launcher:hover {
+  background:transparent; border:0; box-shadow:none; padding:0;
+  width:56px; height:56px;
+}
+.whatsapp-launcher .whatsapp-symbol {
+  display:block; width:54px; height:54px; object-fit:contain;
+}
+@media (max-width:767px) {
+  .whatsapp-launcher { width:60px; height:60px; }
+  .whatsapp-launcher .whatsapp-symbol { width:58px; height:58px; }
+}

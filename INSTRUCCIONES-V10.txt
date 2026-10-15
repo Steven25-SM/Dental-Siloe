@@ -1,0 +1,7 @@
+Dental Siloé V10
+
+- Header móvil: solo logotipo y hamburguesa.
+- Cartel del Hero eliminado de móvil y escritorio.
+- WhatsApp: icono verde proporcionado y sin círculo de fondo; reemplaza public/whatsapp-logo.png si quieres.
+- El número sigue configurándose en src/pages/index.astro (whatsappNumber = "51...").
+- Para publicar en Netlify vinculado a GitHub: confirma los cambios, push y espera la compilación.
