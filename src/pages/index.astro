@@ -11,7 +11,7 @@ const hours = [
 ];
 // CONFIGURACIÓN: coloca aquí el número oficial de WhatsApp.
 // Formato Perú: 51 + 9 dígitos, sin +, espacios ni guiones.
-const whatsappNumber = "";
+const whatsappNumber = "51987825739";
 const whatsappMessage = "Deseo agendar una cita";
 const whatsappUrl = /^\d{10,15}$/.test(whatsappNumber)
   ? `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
@@ -48,9 +48,13 @@ const mapEmbedUrl =
       </div>
       <div class="hero-photo-wrap relative order-1 lg:order-2">
         <div class="hero-photo relative overflow-hidden rounded-[1.65rem] border-[5px] border-white bg-[#d7edfa] shadow-[0_25px_65px_rgba(14,67,130,.16)] sm:rounded-[3rem] sm:border-[7px]">
-          <img src="/fotos/consultorio-hero.webp"
-            alt="Fotografía real del consultorio Dental Siloé y su equipo odontológico"
-            class="w-full object-cover object-center" width="1327" height="720" fetchpriority="high" decoding="async" />
+          <!-- Cambia public/fotos/hero-mobile.webp para usar una foto exclusiva en celulares. -->
+          <picture>
+            <source media="(max-width: 767px)" srcset="/fotos/hero-mobile.webp" type="image/webp" />
+            <img src="/fotos/consultorio-hero.webp"
+              alt="Fotografía real del consultorio Dental Siloé y su equipo odontológico"
+              class="w-full object-cover object-center" width="1327" height="720" fetchpriority="high" decoding="async" />
+          </picture>
         </div>
         <div class="hero-note absolute -bottom-3 right-2 rounded-[1.1rem] bg-white px-4 py-3 text-right shadow-[0_10px_32px_rgba(6,52,109,.14)] sm:-right-3 sm:bottom-8 sm:px-6 sm:py-4">
           <span class="block text-sm font-extrabold leading-tight text-[#0b4f9f] sm:text-lg">Tu sonrisa es<br />nuestra inspiración</span>
@@ -226,7 +230,6 @@ const mapEmbedUrl =
       </div>
       <div class="location-actions">
         <a href={mapUrl} target="_blank" rel="noopener noreferrer" class="button-primary">Abrir en Google Maps <span aria-hidden="true">↗</span></a>
-        <p>Si el marcador no coincide con el local, confirma la dirección antes de acudir.</p>
       </div>
     </div>
   </section>
