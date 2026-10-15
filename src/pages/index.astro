@@ -14,6 +14,10 @@ const mapUrl =
   encodeURIComponent(
     "Dental Siloé, Av. Prol. Javier Prado Este, Ate, Lima Perú",
   );
+const mapEmbedUrl =
+  "https://www.google.com/maps?q=" +
+  encodeURIComponent("Dental Siloé, Av. Prol. Javier Prado Este, Ate, Lima, Perú") +
+  "&output=embed";
 ---
 
 <Layout>
@@ -161,64 +165,59 @@ const mapUrl =
 
   <section id="contacto" class="section-space bg-[#e8f5ff]">
     <div class="page-container">
-      <div class="section-heading mx-auto max-w-3xl text-center md:mx-0 md:text-left">
-        <p class="eyebrow">CONTÁCTANOS</p><h2 class="mt-3">
-          Estamos <span>en Ate</span>
-        </h2>
-        <p>
-          Visítanos o consulta cómo coordinar tu próxima cita. Estaremos
-          encantados de recibirte.
-        </p>
+      <div class="section-heading max-w-3xl">
+        <p class="eyebrow">CONTÁCTANOS</p>
+        <h2 class="mt-3">Estamos <span>en Ate</span></h2>
+        <p>Consulta nuestros horarios y encuentra la dirección del consultorio antes de visitarnos.</p>
       </div>
-      <div class="mt-8 grid items-stretch gap-6 lg:grid-cols-3">
-        <div class="contact-card flex flex-col">
-          <span class="contact-icon" aria-hidden="true">⌖</span><h3>
-            Nuestra ubicación
-          </h3><address class="mt-3 not-italic leading-7 text-[#52657a]">
+      <div class="contact-grid mt-8 grid items-stretch gap-6 lg:grid-cols-[.9fr_1.1fr]">
+        <div class="contact-card contact-location flex flex-col">
+          <span class="contact-icon" aria-hidden="true">⌖</span>
+          <h3>Nuestra ubicación</h3>
+          <address class="mt-3 not-italic leading-7 text-[#43536a]">
             Av. Prol. Javier Prado Este<br />Ate 15498, Lima, Perú
-          </address><p class="mt-3 text-sm leading-6 text-[#63778c]">
-            Consulta la ubicación exacta antes de visitarnos.
-          </p><a
-            class="mt-auto inline-flex pt-6 font-bold text-[#0964c0] hover:underline"
-            href={mapUrl}
-            target="_blank"
-            rel="noopener noreferrer">Consultar en Google Maps ↗</a>
+          </address>
+          <p class="mt-4 text-sm leading-6 text-[#51647a]">Estamos en Ate. Consulta el mapa de abajo para ubicarte y planificar tu visita.</p>
+          <a class="button-map contact-location-link mt-auto" href={mapUrl} target="_blank" rel="noopener noreferrer">Ver ubicación en Google Maps <span aria-hidden="true">↗</span></a>
         </div>
-        <div class="contact-card">
-          <span class="contact-icon" aria-hidden="true">◷</span><h3>
-            Horarios de atención
-          </h3><dl class="mt-4 space-y-2.5 text-sm">
-            {
-              hours.map(([day, time]) => (
-                <div class="flex justify-between gap-4 border-b border-[#e5edf5] pb-2">
-                  <>
-                    <dt class="font-medium text-[#4b6480]">{day}</dt>
-                    <dd class="text-right font-bold text-[#123964]">{time}</dd>
-                  </>
-                </div>
-              ))
-            }
+        <div class="contact-card contact-hours">
+          <div class="flex items-center gap-3">
+            <span class="contact-icon" aria-hidden="true">◷</span>
+            <h3 class="!mt-0">Horario de atención</h3>
+          </div>
+          <dl class="mt-6 grid gap-1 text-sm sm:text-base">
+            {hours.map(([day, time]) => (
+              <div class="hours-row flex items-center justify-between gap-3 border-b border-[#dce8f4] py-2.5">
+                <dt class="font-medium text-[#405873]">{day}</dt>
+                <dd class="text-right font-bold text-[#123964]">{time}</dd>
+              </div>
+            ))}
           </dl>
         </div>
-        <div class="contact-card flex flex-col">
-          <span class="contact-icon" aria-hidden="true">↗</span><h3>
-            ¿Cómo llegar?
-          </h3><p class="mt-3 leading-7 text-[#52657a]">
-            Puedes buscar Dental Siloé en Google Maps para consultar la ruta
-            desde tu ubicación.
-          </p><div
-            class="map-art mt-6 flex min-h-[155px] items-center justify-center rounded-2xl border border-[#d9eaf7] bg-[#f2f8fc]"
-            aria-hidden="true"
-          >
-            <span
-              class="rounded-full bg-white px-5 py-3 text-base font-bold text-[#14569d] shadow-sm"
-              >⌖ Dental Siloé · Ate</span>
-          </div><a
-            class="button-map mt-6"
-            href={mapUrl}
-            target="_blank"
-            rel="noopener noreferrer">Abrir Google Maps ↗</a>
-        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ubicacion" class="location-section" aria-labelledby="location-title">
+    <div class="page-container">
+      <div class="location-heading">
+        <p class="eyebrow">ENCUÉNTRANOS</p>
+        <h2 id="location-title">¡Ven a <span>visitarnos!</span></h2>
+        <p>Estamos en Av. Prol. Javier Prado Este, Ate, Lima. Revisa nuestra ubicación en el mapa.</p>
+      </div>
+      <div class="map-frame">
+        <iframe
+          src={mapEmbedUrl}
+          title="Mapa de Google Maps para buscar Dental Siloé en Ate, Lima"
+          width="100%"
+          height="450"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <div class="location-actions">
+        <a href={mapUrl} target="_blank" rel="noopener noreferrer" class="button-primary">Abrir en Google Maps <span aria-hidden="true">↗</span></a>
       </div>
     </div>
   </section>
@@ -242,11 +241,9 @@ const mapUrl =
     class="whatsapp-launcher"
     title="WhatsApp · número por confirmar"
   >
-    <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"
-      ><path
-        d="M16.01 3.2A12.72 12.72 0 0 0 5.05 22.4L3.2 29l6.78-1.78A12.8 12.8 0 1 0 16.01 3.2Zm0 23.23c-2 0-3.95-.54-5.64-1.56l-.41-.25-4.02 1.05 1.07-3.92-.27-.42a10.47 10.47 0 1 1 9.27 5.1Zm5.76-7.87c-.31-.15-1.85-.91-2.13-1.02-.29-.1-.5-.15-.71.16-.21.31-.81 1.02-.99 1.23-.18.21-.37.23-.68.08-.31-.16-1.32-.49-2.52-1.55-.94-.84-1.57-1.87-1.75-2.19-.19-.31-.02-.48.14-.64.14-.14.31-.37.47-.55.16-.18.21-.31.31-.52.11-.21.05-.39-.03-.55-.08-.16-.71-1.72-.98-2.35-.25-.61-.5-.52-.71-.53l-.6-.01c-.21 0-.55.08-.84.39s-1.1 1.08-1.1 2.64 1.13 3.07 1.29 3.28 2.69 4.12 6.51 5.78c.91.39 1.62.62 2.18.79.92.29 1.75.25 2.41.15.74-.11 2.28-.93 2.6-1.83.32-.91.32-1.68.22-1.83-.1-.16-.29-.24-.6-.39Z"
-      ></path></svg
-    >
+    <svg class="whatsapp-symbol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.47 0 .1 5.36.1 11.96c0 2.1.55 4.15 1.6 5.97L0 24l6.22-1.63a11.9 11.9 0 0 0 5.83 1.49h.01c6.59 0 11.95-5.36 11.95-11.96a11.87 11.87 0 0 0-3.49-8.42Zm-8.46 18.36a9.87 9.87 0 0 1-5.02-1.37l-.36-.21-3.73.98.99-3.63-.24-.37a9.94 9.94 0 0 1-1.53-5.28c0-5.49 4.47-9.95 9.96-9.95a9.9 9.9 0 0 1 7.03 2.92 9.9 9.9 0 0 1 2.91 7.04c0 5.48-4.47 9.94-9.95 9.94Zm5.46-7.45c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.08-.3-.15-1.26-.47-2.4-1.49-.89-.79-1.49-1.77-1.66-2.06-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.53.15-.17.2-.3.3-.49.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37s-1.04 1.02-1.04 2.49 1.06 2.88 1.21 3.08 2.09 3.19 5.07 4.48c.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.77-.73 2.02-1.43.25-.71.25-1.32.17-1.44-.07-.13-.27-.2-.57-.35Z"/>
+    </svg>
   </button>
   <div id="whatsapp-notice" class="whatsapp-notice hidden" role="status">
     <strong>WhatsApp de Dental Siloé</strong><p>

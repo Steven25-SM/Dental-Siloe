@@ -108,3 +108,32 @@ body { color:var(--ink); font-size:17px; }
   .gallery-feature img{height:clamp(255px,64vw,390px);}
   .gallery-feature figcaption{font-size:.79rem;left:12px;bottom:12px;padding:9px 12px;}
 }
+
+/* V5: contacto limpio y mapa real como cierre, manteniendo la paleta existente. */
+.contact-grid { max-width:1120px; }
+.contact-grid .contact-card { padding:clamp(24px,3.8vw,42px); }
+.contact-grid .contact-card h3 { font-size:clamp(1.35rem,2vw,1.7rem); }
+.contact-hours .hours-row:last-child { border-bottom:0; }
+.contact-location-link { align-self:flex-start; margin-top:32px; }
+.location-section { background:#d9efff; padding-block:clamp(54px,7vw,96px); }
+.location-heading { max-width:760px; margin:0 auto 30px; text-align:center; }
+.location-heading h2 { margin-top:12px; color:#0b3061; font-family:'Bricolage Grotesque',sans-serif; font-size:clamp(2.4rem,5.6vw,4.6rem); line-height:1.045; letter-spacing:-.045em; }
+.location-heading h2 span { color:#096dcb; }
+.location-heading p:last-child { margin-top:16px; color:#344b65; font-size:1.05rem; line-height:1.65; }
+.map-frame { overflow:hidden; border:5px solid white; border-radius:26px; background:#fff; box-shadow:0 8px 0 #b3d8f0; }
+.map-frame iframe { display:block; width:100%; height:clamp(350px,45vw,520px); border:0; }
+.location-actions { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:14px 25px; margin-top:30px; }
+.location-actions p { color:#35556c; font-size:.88rem; }
+.whatsapp-launcher { width:62px; height:62px; padding:0; border:3px solid #fff; background:#13c663; box-shadow:0 8px 20px #063a5b38; line-height:0; }
+.whatsapp-launcher .whatsapp-symbol { display:block; width:34px; height:34px; flex-shrink:0; }
+@media(max-width:767px) {
+  .contact-grid { grid-template-columns:1fr; }
+  .contact-location-link { width:100%; }
+  .location-section { padding-block:52px 64px; }
+  .map-frame { border-width:4px; border-radius:20px; }
+  .map-frame iframe { height:370px; }
+  .location-actions { flex-direction:column; text-align:center; }
+  .location-actions .button-primary { width:100%; }
+  .whatsapp-launcher { width:56px; height:56px; right:15px; bottom:17px; }
+  .whatsapp-launcher .whatsapp-symbol { width:30px; height:30px; }
+}
