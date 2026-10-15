@@ -1,19 +1,82 @@
-<header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#082e61]/98 shadow-[0_5px_25px_rgba(8,46,97,.1)] backdrop-blur-md">
-  <nav class="page-container mobile-header-nav relative flex h-[72px] items-center justify-between gap-3 sm:h-[76px] lg:h-[92px]" aria-label="Navegación principal">
+<header
+  class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#082e61]/98 shadow-[0_5px_25px_rgba(8,46,97,.1)] backdrop-blur-md"
+>
+  <nav
+    class="page-container mobile-header-nav relative flex h-[72px] items-center justify-between gap-3 sm:h-[76px] lg:h-[92px]"
+    aria-label="Navegación principal"
+  >
     <!-- Móvil: logotipo completo a la izquierda, menú hamburguesa a la derecha. -->
-    <a href="#inicio" class="mobile-brand flex min-w-0 shrink-0 items-center lg:hidden" aria-label="Dental Siloé, ir al inicio">
-      <img src="/logotipo.png" alt="Dental Siloé" class="h-[52px] w-auto max-w-[185px] object-contain sm:h-[57px] sm:max-w-[220px]" width="1959" height="803" />
+    <a
+      href="#inicio"
+      class="mobile-brand flex min-w-0 shrink-0 items-center lg:hidden"
+      aria-label="Dental Siloé, ir al inicio"
+    >
+      <img
+        src="/logotipo.png"
+        alt="Dental Siloé"
+        class="h-[52px] w-auto max-w-[185px] object-contain sm:h-[57px] sm:max-w-[220px]"
+        width="1959"
+        height="803"
+      />
     </a>
-    <a href="#inicio" class="hidden shrink-0 items-center lg:flex" aria-label="Dental Siloé, ir al inicio">
-      <img src="/logotipo.png" alt="Dental Siloé" class="h-[72px] w-auto max-w-[210px] object-contain" width="1959" height="803" />
+    <a
+      href="#inicio"
+      class="hidden shrink-0 items-center lg:flex"
+      aria-label="Dental Siloé, ir al inicio"
+    >
+      <img
+        src="/logotipo.png"
+        alt="Dental Siloé"
+        class="h-[72px] w-auto max-w-[210px] object-contain"
+        width="1959"
+        height="803"
+      />
     </a>
-    <button id="menu-button" class="mobile-menu-toggle grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-white/20 text-white lg:hidden" type="button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menú de navegación">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="25" height="25" aria-hidden="true"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
+    <button
+      id="menu-button"
+      class="mobile-menu-toggle grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-white/20 text-[#0b2f63] lg:hidden"
+      type="button"
+      aria-controls="mobile-menu"
+      aria-expanded="false"
+      aria-label="Abrir menú de navegación"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        width="25"
+        height="25"
+        aria-hidden="true"
+        ><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"></path></svg
+      >
     </button>
-    <div class="hidden items-center gap-9 lg:flex"><a class="nav-link" href="#inicio">Inicio</a><a class="nav-link" href="#servicios">Servicios</a><a class="nav-link" href="#nosotros">Nosotros</a><a class="nav-link" href="#instalaciones">Instalaciones</a><a class="nav-link" href="#contacto">Contacto</a></div>
-    <a href="#contacto" class="desktop-header-cta button-primary hidden !px-6 !py-3 lg:inline-flex">Agendar cita ↗</a>
+    <div class="hidden items-center gap-9 lg:flex">
+      <a class="nav-link" href="#inicio">Inicio</a><a
+        class="nav-link"
+        href="#servicios">Servicios</a
+      ><a class="nav-link" href="#nosotros">Nosotros</a><a
+        class="nav-link"
+        href="#instalaciones">Instalaciones</a
+      ><a class="nav-link" href="#contacto">Contacto</a>
+    </div>
+    <a
+      href="#contacto"
+      class="desktop-header-cta button-primary hidden !px-6 !py-3 lg:inline-flex"
+      >Agendar cita ↗</a
+    >
   </nav>
-  <div id="mobile-menu" class="hidden border-t border-white/15 bg-[#082e61] px-6 pb-6 lg:hidden"><div class="mx-auto flex max-w-7xl flex-col gap-1 pt-3"><a href="#inicio">Inicio</a><a href="#servicios">Servicios</a><a href="#nosotros">Nosotros</a><a href="#instalaciones">Instalaciones</a><a href="#contacto">Contacto</a><a href="#contacto" class="mobile-cta">Agendar cita ↗</a></div></div>
+  <div
+    id="mobile-menu"
+    class="hidden border-t border-white/15 bg-[#082e61] px-6 pb-6 lg:hidden"
+  >
+    <div class="mx-auto flex max-w-7xl flex-col gap-1 pt-3">
+      <a href="#inicio">Inicio</a><a href="#servicios">Servicios</a><a
+        href="#nosotros">Nosotros</a
+      ><a href="#instalaciones">Instalaciones</a><a href="#contacto">Contacto</a
+      ><a href="#contacto" class="mobile-cta">Agendar cita ↗</a>
+    </div>
+  </div>
 </header>
 <script>
   const button = document.querySelector<HTMLButtonElement>("#menu-button");
@@ -22,7 +85,16 @@
     const opening = mobile?.classList.contains("hidden");
     mobile?.classList.toggle("hidden");
     button.setAttribute("aria-expanded", String(opening));
-    button.setAttribute("aria-label", opening ? "Cerrar menú de navegación" : "Abrir menú de navegación");
+    button.setAttribute(
+      "aria-label",
+      opening ? "Cerrar menú de navegación" : "Abrir menú de navegación",
+    );
   });
-  mobile?.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => {mobile.classList.add("hidden");button?.setAttribute("aria-expanded", "false");button?.setAttribute("aria-label", "Abrir menú de navegación");}));
+  mobile?.querySelectorAll("a").forEach((a) =>
+    a.addEventListener("click", () => {
+      mobile.classList.add("hidden");
+      button?.setAttribute("aria-expanded", "false");
+      button?.setAttribute("aria-label", "Abrir menú de navegación");
+    }),
+  );
 </script>

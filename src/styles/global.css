@@ -262,3 +262,27 @@ body { color:var(--ink); font-size:17px; }
   .whatsapp-launcher { width:60px; height:60px; }
   .whatsapp-launcher .whatsapp-symbol { width:58px; height:58px; }
 }
+
+@media (max-width: 767px) {
+  header {
+    background: #ffffff !important;
+    border-bottom: 1px solid #e5edf5;
+  }
+
+  #mobile-menu {
+    background: #ffffff !important;
+  }
+
+  #mobile-menu a {
+    color: #0b2f63;
+  }
+
+  #mobile-menu a:hover {
+    background: #eaf6ff;
+  }
+
+  #mobile-menu a.mobile-cta {
+    color: #ffffff;
+    background: #ff871f;
+  }
+}
