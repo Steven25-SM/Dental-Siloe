@@ -11,7 +11,7 @@ const hours = [
 ];
 // CONFIGURACIÓN: coloca aquí el número oficial de WhatsApp.
 // Formato Perú: 51 + 9 dígitos, sin +, espacios ni guiones.
-const whatsappNumber = "51987825739";
+const whatsappNumber = "";
 const whatsappMessage = "Deseo agendar una cita";
 const whatsappUrl = /^\d{10,15}$/.test(whatsappNumber)
   ? `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
@@ -226,7 +226,7 @@ const mapEmbedUrl =
       </div>
       <div class="location-actions">
         <a href={mapUrl} target="_blank" rel="noopener noreferrer" class="button-primary">Abrir en Google Maps <span aria-hidden="true">↗</span></a>
-        
+        <p>Si el marcador no coincide con el local, confirma la dirección antes de acudir.</p>
       </div>
     </div>
   </section>
