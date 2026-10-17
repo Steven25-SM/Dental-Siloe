@@ -11,7 +11,7 @@ const hours = [
 ];
 // CONFIGURACIÓN: coloca aquí el número oficial de WhatsApp.
 // Formato Perú: 51 + 9 dígitos, sin +, espacios ni guiones.
-const whatsappNumber = "";
+const whatsappNumber = "51993958198";
 const whatsappMessage = "Deseo agendar una cita";
 const whatsappUrl = /^\d{10,15}$/.test(whatsappNumber)
   ? `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
@@ -252,7 +252,7 @@ const mapEmbedUrl =
     data-whatsapp-phone={whatsappNumber}
     data-whatsapp-message={whatsappMessage}
   >
-    <img class="whatsapp-symbol" src="/whatsapp-logo.png" alt="" width="64" height="64" decoding="async" />
+    <img class="whatsapp-symbol" src="/whatsapp-logo.png" alt="" width="80" height="80" decoding="async" />
   </a>
   <script>
     // En computadoras, abrir el chat directamente en WhatsApp Web.
