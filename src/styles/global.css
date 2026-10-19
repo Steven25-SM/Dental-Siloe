@@ -940,3 +940,48 @@ body {
     border-bottom: none;
   }
 }
+
+
+/* Ajustes finales móviles (19/10): sin modificar la alineación del header. */
+@media (max-width: 767px) {
+  .hero-content { text-align: center; margin-inline: auto; }
+  .hero-content > p:not(.eyebrow) { margin-inline: auto; }
+  .hero-cta-row { justify-content: center; align-items: center; }
+  #nosotros .section-heading { text-align: center; margin-inline: auto; }
+  #nosotros .benefit { flex-direction: column; align-items: center; text-align: center; }
+  #nosotros .benefit-icon { margin-inline: auto; }
+  #nosotros .section-heading > div { justify-items: center; }
+}
+.location-actions { justify-content: center; }
+.location-actions .button-primary { text-align: center; }
+/* La insignia de Netlify es externa; estos valores son aproximados. */
+.whatsapp-launcher { bottom: 62px; width: 62px; height: 62px; }
+.whatsapp-launcher .whatsapp-symbol { width: 60px; height: 60px; }
+@media (max-width: 767px) {
+  .whatsapp-launcher { bottom: calc(64px + env(safe-area-inset-bottom, 0px)); width: 66px; height: 66px; }
+  .whatsapp-launcher .whatsapp-symbol { width: 64px; height: 64px; }
+}
+
+/* WhatsApp sin insignia Netlify: posición habitual inferior derecha. */
+.whatsapp-launcher {
+  right: 22px;
+  bottom: 22px;
+  width: 60px;
+  height: 60px;
+}
+.whatsapp-launcher .whatsapp-symbol {
+  width: 58px;
+  height: 58px;
+}
+@media (max-width: 767px) {
+  .whatsapp-launcher {
+    right: 17px;
+    bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+    width: 64px;
+    height: 64px;
+  }
+  .whatsapp-launcher .whatsapp-symbol {
+    width: 62px;
+    height: 62px;
+  }
+}

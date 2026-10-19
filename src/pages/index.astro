@@ -42,7 +42,7 @@ const mapEmbedUrl =
           clara y dedicada al cuidado de tu salud bucal en Ate.
         </p>
         <div class="hero-cta-row mt-7 flex flex-wrap gap-3.5">
-          <a href="#contacto" class="button-primary">Agendar cita <span aria-hidden="true">↗</span></a>
+          <a href={whatsappUrl} data-whatsapp-action class="button-primary">Agendar cita <span aria-hidden="true">↗</span></a>
           <a href="#servicios" class="button-outline">Ver servicios <span aria-hidden="true">→</span></a>
         </div>
       </div>
@@ -228,7 +228,6 @@ const mapEmbedUrl =
       </div>
       <div class="location-actions">
         <a href={mapUrl} target="_blank" rel="noopener noreferrer" class="button-primary">Abrir en Google Maps <span aria-hidden="true">↗</span></a>
-        <p>Si el marcador no coincide con el local, confirma la dirección antes de acudir.</p>
       </div>
     </div>
   </section>
@@ -264,9 +263,14 @@ const mapEmbedUrl =
     const message = whatsappLauncher?.dataset.whatsappMessage ?? "";
     if (whatsappLauncher && /^\d{10,15}$/.test(number)) {
       const isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
-      whatsappLauncher.href = isMobile
+      const url = isMobile
         ? `https://wa.me/${number}?text=${encodeURIComponent(message)}`
         : `https://web.whatsapp.com/send?phone=${number}&text=${encodeURIComponent(message)}`;
+      document.querySelectorAll<HTMLAnchorElement>('[data-whatsapp-action], #whatsapp-launcher').forEach((link) => {
+        link.href = url;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+      });
     }
   </script>
 </Layout>
