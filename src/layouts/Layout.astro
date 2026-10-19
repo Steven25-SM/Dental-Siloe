@@ -58,7 +58,9 @@ const dentistStructuredData = {
     <link rel="preload" as="image" href="/fotos/hero-mobile.webp" type="image/webp" media="(max-width: 767px)" fetchpriority="high" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <!-- Carga no bloqueante: conserva las fuentes elegidas sin retrasar el render inicial. -->
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet" /></noscript>
     <script type="application/ld+json" set:html={JSON.stringify(dentistStructuredData)} />
   </head>
   <body class="antialiased"><Navbar /><main><slot /></main></body>
