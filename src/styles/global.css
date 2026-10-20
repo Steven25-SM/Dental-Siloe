@@ -1025,6 +1025,7 @@ body {
     z-index: 2;
     width: min(100%, 650px);
     max-width: 650px;
+    transform: translateX(-45px);
   }
   #inicio .hero-content h1,
   #inicio .hero-content h1 span,
@@ -1071,9 +1072,9 @@ body {
 :root {
   /* Modifica estos cuatro valores si quieres probar otro overlay. */
   --hero-overlay-color: #0b4da2;
-  --hero-overlay-left: 82%;
+  --hero-overlay-left: 62%;
   --hero-overlay-middle: 52%;
-  --hero-overlay-right: 20%;
+  --hero-overlay-right: 40%;
 }
 
 @media (min-width: 1024px) {
@@ -1084,19 +1085,21 @@ body {
   }
 
   /* Capa horizontal: texto protegido, fotografía más visible a la derecha. */
-  #inicio.hero-section::after {
-    background: linear-gradient(
-      90deg,
-      color-mix(in srgb, var(--hero-overlay-color) var(--hero-overlay-left), transparent) 0%,
-      color-mix(in srgb, var(--hero-overlay-color) var(--hero-overlay-middle), transparent) 49%,
-      color-mix(in srgb, var(--hero-overlay-color) var(--hero-overlay-right), transparent) 100%
-    );
-  }
+#inicio.hero-section::after {
+  background: linear-gradient(
+    90deg,
+    rgba(7, 47, 105, 0.78) 0%,
+    rgba(8, 58, 122, 0.66) 30%,
+    rgba(9, 67, 135, 0.40) 55%,
+    rgba(9, 67, 135, 0.16) 80%,
+    rgba(9, 67, 135, 0.08) 100%
+  );
+}
 
   #inicio .hero-photo img {
     object-fit: cover;
     object-position: center 48%;
-    filter: brightness(.91) contrast(1.07) saturate(1.04);
+    filter: brightness(1) contrast(1.04) saturate(1.02);
     transform: scale(1.015);
   }
 
@@ -1244,3 +1247,4 @@ body {
   }
   .whatsapp-launcher .whatsapp-symbol { width: 66px; height: 66px; }
 }
+
