@@ -985,3 +985,262 @@ body {
     height: 62px;
   }
 }
+
+/* HERO FULL-BLEED EN PC: edita solo las variables de abajo. */
+:root {
+  --hero-overlay-color: #0B4DA2;
+  --hero-overlay-left: 55%;
+  --hero-overlay-middle: 25%;
+  --hero-overlay-right: 55%;
+}
+@media (min-width: 1024px) {
+  #inicio.hero-section {
+    position: relative;
+    isolation: isolate;
+    min-height: 100svh;
+    background: #1f71eb87;
+  }
+  #inicio.hero-section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: linear-gradient(90deg,
+      color-mix(in srgb, var(--hero-overlay-color) var(--hero-overlay-left), transparent) 0%,
+      color-mix(in srgb, var(--hero-overlay-color) var(--hero-overlay-middle), transparent) 48%,
+      color-mix(in srgb, var(--hero-overlay-color) var(--hero-overlay-right), transparent) 100%);
+  }
+  #inicio .hero-orb { display: none; }
+  #inicio .hero-layout {
+    position: static;
+    display: flex;
+    align-items: center;
+    min-height: 100svh;
+    padding-top: 116px;
+    padding-bottom: 48px;
+  }
+  #inicio .hero-content {
+    position: relative;
+    z-index: 2;
+    width: min(100%, 650px);
+    max-width: 650px;
+  }
+  #inicio .hero-content h1,
+  #inicio .hero-content h1 span,
+  #inicio .hero-content > p:not(.eyebrow),
+  #inicio .hero-content .eyebrow { color: #ffffff !important; }
+  #inicio .hero-content > p:not(.eyebrow) {
+    max-width: 530px;
+    text-shadow: 0 1px 12px rgba(3,29,70,.22);
+  }
+  #inicio .hero-content h1 { text-shadow: 0 2px 18px rgba(3,29,70,.18); }
+  #inicio .hero-photo-wrap {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+  #inicio .hero-photo {
+    width: 100%; height: 100%; border: 0;
+    border-radius: 0; box-shadow: none;
+    background: #1F6FEB;
+  }
+  #inicio .hero-photo picture,
+  #inicio .hero-photo img {
+    display: block;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center 45%;
+  }
+  #inicio .button-outline {
+    background: rgba(255,255,255,.96);
+    border-color: #fff;
+    color: #0b3f86;
+  }
+  #inicio .button-outline:hover { background: #fff; }
+}
+
+
+/* ==============================================================
+   HERO: AJUSTE VISUAL DEFINITIVO (PC) Y FOTO COMPLETA (MOVIL)
+   Mantiene la identidad, el navbar y todas las secciones.
+   =============================================================== */
+:root {
+  /* Modifica estos cuatro valores si quieres probar otro overlay. */
+  --hero-overlay-color: #0b4da2;
+  --hero-overlay-left: 82%;
+  --hero-overlay-middle: 52%;
+  --hero-overlay-right: 20%;
+}
+
+@media (min-width: 1024px) {
+  #inicio.hero-section {
+    background: #0b4da2;
+    min-height: 100svh;
+    overflow: hidden;
+  }
+
+  /* Capa horizontal: texto protegido, fotografía más visible a la derecha. */
+  #inicio.hero-section::after {
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--hero-overlay-color) var(--hero-overlay-left), transparent) 0%,
+      color-mix(in srgb, var(--hero-overlay-color) var(--hero-overlay-middle), transparent) 49%,
+      color-mix(in srgb, var(--hero-overlay-color) var(--hero-overlay-right), transparent) 100%
+    );
+  }
+
+  #inicio .hero-photo img {
+    object-fit: cover;
+    object-position: center 48%;
+    filter: brightness(.91) contrast(1.07) saturate(1.04);
+    transform: scale(1.015);
+  }
+
+  #inicio .hero-content h1 {
+    max-width: 650px;
+    line-height: 1.03;
+    text-shadow: 0 3px 22px rgba(3, 30, 67, .18);
+  }
+
+  #inicio .hero-content > p:not(.eyebrow) {
+    line-height: 1.65;
+    text-shadow: 0 2px 10px rgba(3, 30, 67, .24);
+  }
+}
+
+/* Imagen del Hero móvil: mostrar TODOS los bordes, letras y números.
+   A diferencia de object-fit: cover, contain + altura automática no recorta.
+   El tamaño final depende de la proporción original de hero-mobile.webp. */
+@media (max-width: 767px) {
+  #inicio .hero-photo-wrap {
+    overflow: visible;
+  }
+
+  #inicio .hero-photo,
+  #inicio .hero-photo picture {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #0b4da2;
+  }
+
+  #inicio .hero-photo img {
+    display: block;
+    width: 100%;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    filter: none;
+    transform: none;
+  }
+}
+
+/* ===== Parche visual trayectoria y WhatsApp (sin tocar Hero ni navbar) ===== */
+.experience-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: clamp(66px, 7.5vw, 112px);
+  background: linear-gradient(155deg, #f8fcff 0%, #e9f5ff 65%, #e2f1fe 100%);
+}
+.experience-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1080px;
+  text-align: center;
+}
+.experience-eyebrow { color: #086bc5; }
+.experience-title {
+  max-width: 1030px;
+  margin: 22px auto 0;
+  font-size: clamp(2.3rem, 5.1vw, 5rem);
+  line-height: 1.06;
+  letter-spacing: -.05em;
+  text-wrap: balance;
+}
+.experience-highlight {
+  display: block;
+  color: #ff871f;
+}
+.experience-rest {
+  display: block;
+  color: #0873d2;
+  margin-top: .17em;
+}
+.experience-divider {
+  display: block;
+  width: 128px;
+  height: 5px;
+  border-radius: 999px;
+  background: #ff871f;
+  margin: 25px auto 18px;
+  transform: rotate(-2deg);
+}
+.experience-caption {
+  margin-inline: auto;
+  max-width: 640px;
+  color: #334e6b;
+  font-size: clamp(.98rem, 1.6vw, 1.1rem);
+  line-height: 1.65;
+}
+.experience-aura {
+  position: absolute;
+  z-index: 0;
+  width: 420px;
+  aspect-ratio: 1;
+  pointer-events: none;
+  border-radius: 50%;
+}
+.experience-aura-left {
+  left: -210px;
+  top: -205px;
+  background: radial-gradient(circle, rgba(9, 106, 203, .18), transparent 71%);
+}
+.experience-aura-right {
+  right: -195px;
+  bottom: -230px;
+  background: radial-gradient(circle, rgba(255, 135, 31, .18), transparent 72%);
+}
+/* El archivo recortado elimina el espacio transparente sobrante.
+   Así el icono visible ocupa casi todo el tamaño declarado. */
+.whatsapp-launcher {
+  right: 20px;
+  bottom: 20px;
+  width: 64px;
+  height: 64px;
+  padding: 0;
+}
+.whatsapp-launcher .whatsapp-symbol {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .experience-content { text-align: center; }
+  .experience-title { font-size: clamp(2.7rem, 6vw, 4.25rem); }
+  #inicio .hero-content { text-align: center; margin-inline: auto; }
+  #inicio .hero-content > p:not(.eyebrow) { margin-inline: auto; }
+  #inicio .hero-cta-row { justify-content: center; }
+  #nosotros .section-heading { text-align: center; margin-inline: auto; }
+}
+@media (max-width: 767px) {
+  .experience-section { padding-block: 62px; }
+  .experience-title { font-size: clamp(2rem, 9vw, 3.5rem); }
+  .experience-divider { width: 105px; margin-top: 22px; }
+  .experience-aura { width: 270px; }
+  .experience-aura-left { top: -110px; left: -180px; }
+  .experience-aura-right { bottom: -160px; right: -170px; }
+  .whatsapp-launcher {
+    right: 16px;
+    bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+    width: 66px;
+    height: 66px;
+  }
+  .whatsapp-launcher .whatsapp-symbol { width: 66px; height: 66px; }
+}

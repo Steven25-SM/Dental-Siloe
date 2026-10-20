@@ -13,8 +13,9 @@ const hours = [
 // Formato Perú: 51 + 9 dígitos, sin +, espacios ni guiones.
 const whatsappNumber = "51993958198";
 const whatsappMessage = "Deseo agendar una cita";
+// WhatsApp decide si muestra la pantalla intermedia, la aplicación o el navegador.
 const whatsappUrl = /^\d{10,15}$/.test(whatsappNumber)
-  ? `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
+  ? `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(whatsappMessage)}`
   : "#contacto";
 
 const mapUrl =
@@ -57,6 +58,21 @@ const mapEmbedUrl =
           </picture>
         </div>
 </div>
+    </div>
+  </section>
+
+  <!-- Trayectoria: confirmar con los propietarios que los 29 años corresponden al consultorio. -->
+  <section class="experience-section" aria-labelledby="trayectoria-title">
+    <div class="experience-aura experience-aura-left" aria-hidden="true"></div>
+    <div class="experience-aura experience-aura-right" aria-hidden="true"></div>
+    <div class="page-container experience-content">
+      <p class="eyebrow experience-eyebrow">NUESTRA TRAYECTORIA</p>
+      <h2 id="trayectoria-title" class="experience-title">
+        <span class="experience-highlight">29 años de experiencia</span>
+        <span class="experience-rest">cuidando sonrisas con cercanía y dedicación.</span>
+      </h2>
+      <span class="experience-divider" aria-hidden="true"></span>
+      <p class="experience-caption">Comprometidos con tu sonrisa en cada visita.</p>
     </div>
   </section>
 
@@ -249,28 +265,25 @@ const mapEmbedUrl =
     rel={whatsappUrl.startsWith("https://") ? "noopener noreferrer" : undefined}
     aria-label="Enviar un mensaje a Dental Siloé por WhatsApp para agendar una cita"
     class="whatsapp-launcher"
-    title="Agendar una cita por WhatsApp"
+    title="Agendar cita"
     data-whatsapp-phone={whatsappNumber}
     data-whatsapp-message={whatsappMessage}
   >
     <img class="whatsapp-symbol" src="/whatsapp-logo-optimizado.webp" alt="" width="80" height="80" decoding="async" />
   </a>
   <script>
-    // En computadoras, abrir el chat directamente en WhatsApp Web.
-    // En teléfonos, el enlace wa.me permite abrir la aplicación instalada.
-    const whatsappLauncher = document.querySelector<HTMLAnchorElement>("#whatsapp-launcher");
-    const number = whatsappLauncher?.dataset.whatsappPhone ?? "";
-    const message = whatsappLauncher?.dataset.whatsappMessage ?? "";
-    if (whatsappLauncher && /^\d{10,15}$/.test(number)) {
-      const isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
-      const url = isMobile
-        ? `https://wa.me/${number}?text=${encodeURIComponent(message)}`
-        : `https://web.whatsapp.com/send?phone=${number}&text=${encodeURIComponent(message)}`;
-      document.querySelectorAll<HTMLAnchorElement>('[data-whatsapp-action], #whatsapp-launcher').forEach((link) => {
-        link.href = url;
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
-      });
+    // Unifica los botones de cita sin saltarse la pantalla intermedia de WhatsApp.
+    const launcher = document.querySelector<HTMLAnchorElement>("#whatsapp-launcher");
+    const number = launcher?.dataset.whatsappPhone ?? "";
+    const message = launcher?.dataset.whatsappMessage ?? "";
+    if (/^\d{10,15}$/.test(number)) {
+      const url = `https://api.whatsapp.com/send?phone=${number}&text=${encodeURIComponent(message)}`;
+      document.querySelectorAll<HTMLAnchorElement>("[data-whatsapp-action], #whatsapp-launcher")
+        .forEach((link) => {
+          link.href = url;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+        });
     }
   </script>
 </Layout>
