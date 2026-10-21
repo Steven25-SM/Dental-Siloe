@@ -1271,3 +1271,117 @@ body {
     filter: none !important;
   }
 }
+
+/* ================================================================
+   PARCHE HERO MÓVIL Y TABLET — DENTAL SILOÉ
+   Base: respaldo (7). No modifica el Hero de escritorio >=1024px.
+   Imagen a sangre, sin bordes/tarjeta y distintivo sobre la foto.
+   ================================================================ */
+@media (max-width: 1023px) {
+  #inicio .hero-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #inicio .hero-photo-wrap {
+    position: relative;
+    order: -1;
+    isolation: isolate;
+    width: 100vw;
+    max-width: none;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    overflow: visible;
+  }
+
+  #inicio .hero-photo {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: #e9f5ff;
+  }
+
+  #inicio .hero-photo picture,
+  #inicio .hero-photo img {
+    display: block;
+    width: 100%;
+  }
+
+  /* El distintivo va SOBRE la foto y no como texto después de ella. */
+  #inicio .mobile-experience-badge {
+    position: absolute;
+    left: clamp(16px, 3vw, 28px);
+    bottom: clamp(16px, 3vw, 28px);
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1px;
+    width: max-content;
+    max-width: calc(100% - 32px);
+    margin: 0;
+    padding: 11px 16px 12px;
+    background: #fff;
+    color: #0b3061;
+    border-radius: 19px;
+    box-shadow: 0 7px 22px rgba(9, 52, 101, .14);
+    font-family: "Bricolage Grotesque", sans-serif;
+    line-height: 1.04;
+    text-align: left;
+    pointer-events: none;
+  }
+
+  #inicio .mobile-experience-badge strong {
+    display: block;
+    font-size: clamp(1.45rem, 4vw, 1.9rem);
+    font-weight: 800;
+    letter-spacing: -.035em;
+    background: linear-gradient(100deg, #ff9100 0%, #ff3d00 55%, #d50000 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  #inicio .mobile-experience-badge span {
+    display: block;
+    font-size: clamp(.82rem, 2.3vw, 1rem);
+    font-weight: 800;
+    letter-spacing: -.01em;
+    color: #0b3061;
+  }
+}
+
+@media (max-width: 767px) {
+  #inicio .hero-photo img {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    filter: none !important;
+    transform: none !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  #inicio .hero-photo {
+    aspect-ratio: 16 / 10;
+  }
+
+  #inicio .hero-photo picture,
+  #inicio .hero-photo img {
+    height: 100% !important;
+  }
+
+  #inicio .hero-photo img {
+    object-fit: cover !important;
+    object-position: center 44% !important;
+    filter: none !important;
+    transform: none !important;
+  }
+}
