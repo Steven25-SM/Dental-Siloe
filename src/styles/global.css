@@ -1408,3 +1408,182 @@ body {
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+/* ================================================================
+   PARCHE — Rehabilitación oral + footer compacto de contacto
+   ================================================================ */
+.rehab-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top right, rgba(8, 115, 210, 0.08), transparent 28%),
+    linear-gradient(180deg, #ffffff 0%, #f8fcff 100%);
+}
+.rehab-feature {
+  overflow: hidden;
+  border-radius: 30px;
+  border: 1px solid #dfeaf5;
+  background: #ffffff;
+  box-shadow: 0 18px 42px rgba(18, 73, 137, 0.08);
+}
+.rehab-feature img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.rehab-feature figcaption {
+  padding: 16px 22px 18px;
+  text-align: center;
+  font-weight: 700;
+  color: #4f6780;
+  background: linear-gradient(180deg, #ffffff, #f6fbff);
+}
+
+.site-footer {
+  position: relative;
+  margin-top: 0;
+}
+.footer-grid {
+  display: grid;
+  gap: 26px;
+  align-items: start;
+}
+.footer-brand-block,
+.footer-info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.footer-title {
+  margin: 0 0 4px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+.footer-copy,
+.footer-info-block p {
+  margin: 0;
+  line-height: 1.75;
+  color: #d6e8f8;
+}
+.footer-map-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  width: fit-content;
+  padding: 12px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 800;
+  color: #082e61;
+  background: #ffffff;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.footer-map-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
+}
+
+@media (min-width: 900px) {
+  .footer-grid {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.9fr) minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .rehab-feature {
+    border-radius: 22px;
+  }
+  .rehab-feature figcaption {
+    padding: 14px 16px 16px;
+    font-size: 0.92rem;
+  }
+  .footer-grid {
+    gap: 22px;
+  }
+  .footer-map-link {
+    width: 100%;
+  }
+}
+
+/* Rehabilitación oral: tamaño igual a Nuestras instalaciones y colores de marca. */
+#rehabilitacion .section-heading h2 {
+  color: #0873D2;
+}
+#rehabilitacion .section-heading h2 > span {
+  color: #FF3D00;
+  background-image: linear-gradient(100deg, #FF9100 0%, #FF3D00 52%, #D50000 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#rehabilitacion .rehab-feature {
+  width: min(100%, 920px);
+  margin-inline: auto;
+  border: 5px solid #ffffff;
+  border-radius: 28px;
+  box-shadow: 0 7px 0 #c5e0f1;
+  background: #d9ebf7;
+}
+#rehabilitacion .rehab-feature img {
+  display: block;
+  width: 100%;
+  height: clamp(290px, 44vw, 465px);
+  object-fit: cover;
+  object-position: center;
+}
+#rehabilitacion .rehab-feature figcaption {
+  position: static;
+  max-width: none;
+  margin: 0;
+  padding: 12px 16px;
+  border-radius: 0;
+  box-shadow: none;
+  font-size: .84rem;
+  font-weight: 600;
+  color: #456480;
+  background: #ffffff;
+}
+@media (max-width: 767px) {
+  #rehabilitacion .rehab-feature {
+    border-width: 4px;
+    border-radius: 22px;
+  }
+  #rehabilitacion .rehab-feature img {
+    height: clamp(255px, 64vw, 390px);
+  }
+  #rehabilitacion .rehab-feature figcaption {
+    font-size: .76rem;
+    line-height: 1.5;
+  }
+}
+
+
+/* REHABILITACIÓN ORAL — Mostrar imagen completa */
+
+#rehabilitacion .rehab-feature {
+  height: auto !important;
+  max-height: none !important;
+  overflow: hidden;
+}
+
+#rehabilitacion .rehab-feature img {
+  display: block;
+  width: 100%;
+  height: auto !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+/* Ajuste para celulares y tablets */
+@media (max-width: 1023px) {
+  #rehabilitacion .rehab-feature img {
+    width: 100%;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+}

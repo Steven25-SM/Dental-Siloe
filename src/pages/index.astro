@@ -1,22 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
-const hours = [
-  ["Lunes", "9 a. m. – 8 p. m."],
-  ["Martes", "9 a. m. – 8 p. m."],
-  ["Miércoles", "9 a. m. – 8 p. m."],
-  ["Jueves", "9 a. m. – 8 p. m."],
-  ["Viernes", "9 a. m. – 8 p. m."],
-  ["Sábado", "9 a. m. – 12 p. m."],
-  ["Domingo", "Cerrado"],
-];
+
 // CONFIGURACIÓN: coloca aquí el número oficial de WhatsApp.
 // Formato Perú: 51 + 9 dígitos, sin +, espacios ni guiones.
-const whatsappNumber = "51993958198";
+const whatsappNumber = "51987825739";
 const whatsappMessage = "Deseo agendar una cita";
 // WhatsApp decide si muestra la pantalla intermedia, la aplicación o el navegador.
 const whatsappUrl = /^\d{10,15}$/.test(whatsappNumber)
   ? `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(whatsappMessage)}`
-  : "#contacto";
+  : "#footer-contact";
 
 const mapUrl =
   "https://www.google.com/maps/search/?api=1&query=" +
@@ -49,7 +41,6 @@ const mapEmbedUrl =
       </div>
       <div class="hero-photo-wrap relative order-1 lg:order-2">
         <div class="hero-photo relative overflow-hidden rounded-[1.65rem] border-[5px] border-white bg-[#d7edfa] shadow-[0_25px_65px_rgba(14,67,130,.16)] sm:rounded-[3rem] sm:border-[7px]">
-          <!-- Cambia public/fotos/hero-mobile.webp para usar una foto exclusiva en celulares. -->
           <picture>
             <source media="(max-width: 1023px)" srcset="/fotos/hero-mobile-propuesta-01.webp" type="image/webp" />
             <img src="/fotos/consultorio-hero.webp"
@@ -65,7 +56,6 @@ const mapEmbedUrl =
     </div>
   </section>
 
-  <!-- Trayectoria: confirmar con los propietarios que los 29 años corresponden al consultorio. -->
   <section class="experience-section" aria-labelledby="trayectoria-title">
     <div class="experience-aura experience-aura-left" aria-hidden="true"></div>
     <div class="experience-aura experience-aura-right" aria-hidden="true"></div>
@@ -117,15 +107,34 @@ const mapEmbedUrl =
     </div>
   </section>
 
+  <section id="rehabilitacion" class="section-space rehab-section bg-white">
+    <div class="page-container">
+      <div class="section-heading mx-auto max-w-3xl text-center">
+        <p class="eyebrow">REHABILITACIÓN ORAL</p>
+        <h2 class="mt-3">Recupera tu <span>sonrisa</span></h2>
+        <p>
+          Realizamos rehabilitación oral para devolver funcionalidad, comodidad
+          y armonía a tu sonrisa. Evaluamos cada caso de forma personalizada
+          para mejorar la mordida, la estética dental y la seguridad al sonreír.
+        </p>
+      </div>
+      <figure class="gallery-feature rehab-feature mt-8 sm:mt-10">
+        <img
+          src="/antes-y-despues-rehabilitacion-oral.png"
+          alt="Comparación visual de antes y después en un tratamiento de rehabilitación oral"
+          loading="lazy"
+          width="1664"
+          height="936"
+        />
+        
+      </figure>
+    </div>
+  </section>
+
   <section id="nosotros" class="section-space overflow-hidden bg-white">
-    <div
-      class="page-container grid items-center gap-9 lg:grid-cols-[.94fr_1.06fr] lg:gap-16"
-    >
+    <div class="page-container grid items-center gap-9 lg:grid-cols-[.94fr_1.06fr] lg:gap-16">
       <div class="relative mx-auto w-full max-w-[510px] lg:mx-0">
-        <div
-          class="absolute -left-5 -top-5 -z-0 h-[95%] w-[94%] rounded-[2.5rem] bg-[#d7f1ff]"
-        >
-        </div>
+        <div class="absolute -left-5 -top-5 -z-0 h-[95%] w-[94%] rounded-[2.5rem] bg-[#d7f1ff]"></div>
         <img
           src="/fotos/hero-mobile.webp"
           alt="Entrada real de Dental Siloé con su señalización"
@@ -193,41 +202,6 @@ const mapEmbedUrl =
     </div>
   </section>
 
-  <section id="contacto" class="section-space bg-[#e8f5ff]">
-    <div class="page-container">
-      <div class="section-heading max-w-3xl">
-        <p class="eyebrow">CONTÁCTANOS</p>
-        <h2 class="mt-3">Estamos <span>en Ate</span></h2>
-        <p>Consulta nuestros horarios y encuentra la dirección del consultorio antes de visitarnos.</p>
-      </div>
-      <div class="contact-grid mt-8 grid items-stretch gap-6 lg:grid-cols-[.9fr_1.1fr]">
-        <div class="contact-card contact-location flex flex-col">
-          <span class="contact-icon" aria-hidden="true">⌖</span>
-          <h3>Nuestra ubicación</h3>
-          <address class="mt-3 not-italic leading-7 text-[#43536a]">
-            Av. Prol. Javier Prado Este<br />Ate 15498, Lima, Perú
-          </address>
-          <p class="mt-4 text-sm leading-6 text-[#51647a]">Estamos en Ate. Consulta el mapa de abajo para ubicarte y planificar tu visita.</p>
-          <a class="button-map contact-location-link mt-auto" href={mapUrl} target="_blank" rel="noopener noreferrer">Ver ubicación en Google Maps <span aria-hidden="true">↗</span></a>
-        </div>
-        <div class="contact-card contact-hours">
-          <div class="flex items-center gap-3">
-            <span class="contact-icon" aria-hidden="true">◷</span>
-            <h3 class="!mt-0">Horario de atención</h3>
-          </div>
-          <dl class="mt-6 grid gap-1 text-sm sm:text-base">
-            {hours.map(([day, time]) => (
-              <div class="hours-row flex items-center justify-between gap-3 border-b border-[#dce8f4] py-2.5">
-                <dt class="font-medium text-[#405873]">{day}</dt>
-                <dd class="text-right font-bold text-[#123964]">{time}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section id="ubicacion" class="location-section" aria-labelledby="location-title">
     <div class="page-container">
       <div class="location-heading">
@@ -251,17 +225,27 @@ const mapEmbedUrl =
       </div>
     </div>
   </section>
-  <footer class="bg-[#082e61] py-8 text-[#c6def3]">
-    <div
-      class="page-container flex flex-col items-start justify-between gap-4 text-sm sm:flex-row sm:items-center"
-    >
-      <p>
-        © {new Date().getFullYear()} Dental Siloé. Todos los derechos reservados.
-      </p><p>Atención odontológica en Ate, Lima.</p>
+  <footer id="footer-contact" class="site-footer bg-[#082e61] py-10 text-[#c6def3]">
+    <div class="page-container footer-grid">
+      <div class="footer-brand-block">
+        <p class="footer-copy">© {new Date().getFullYear()} Dental Siloé. Todos los derechos reservados.</p>
+        <p class="footer-copy">Atención odontológica en Ate, Lima.</p>
+      </div>
+
+      <div class="footer-info-block">
+        <p class="footer-title">Horario de atención</p>
+        <p>Lunes a viernes: 9 a. m. – 8 p. m.</p>
+        <p>Sábados: 9 a. m. – 12 p. m.</p>
+      </div>
+
+      <div class="footer-info-block">
+        <p class="footer-title">Ubicación</p>
+        <p>Av. Prol. Javier Prado Este</p>
+        <p>Ate 15498, Lima, Perú</p>
+      </div>
     </div>
   </footer>
 
-  <!-- WhatsApp: el número se configura arriba, en whatsappNumber. -->
   <a
     id="whatsapp-launcher"
     href={whatsappUrl}
