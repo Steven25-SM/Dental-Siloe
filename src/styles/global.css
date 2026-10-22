@@ -1092,9 +1092,9 @@ body {
 #inicio.hero-section::after {
   background: linear-gradient(
     90deg,
-    rgba(7, 47, 105, 0.78) 0%,
-    rgba(8, 58, 122, 0.66) 30%,
-    rgba(9, 67, 135, 0.40) 55%,
+    rgba(7, 47, 105, 0.68) 0%,
+    rgba(8, 58, 122, 0.50) 30%,
+    rgba(9, 67, 135, 0.30) 55%,
     rgba(9, 67, 135, 0.16) 80%,
     rgba(9, 67, 135, 0.08) 100%
   );
@@ -1384,4 +1384,27 @@ body {
     filter: none !important;
     transform: none !important;
   }
+}
+
+/* DENTAL SILOÉ — colores de títulos, disposición corregida.
+   Texto principal: azul claro. Palabras destacadas: degradado del logo.
+   Ninguna otra sección ni disposición se modifica. */
+#servicios .section-heading h2,
+#nosotros .section-heading h2,
+#instalaciones .section-heading h2,
+#contacto .section-heading h2,
+#ubicacion .location-heading h2 {
+  color: #0873D2;
+}
+
+#servicios .section-heading h2 > span,
+#nosotros .section-heading h2 > span,
+#instalaciones .section-heading h2 > span,
+#contacto .section-heading h2 > span,
+#ubicacion .location-heading h2 > span {
+  color: #FF3D00;
+  background-image: linear-gradient(100deg, #FF9100 0%, #FF3D00 52%, #D50000 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

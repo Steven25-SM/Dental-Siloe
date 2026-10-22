@@ -5,7 +5,8 @@ import Navbar from "../components/Navbar.astro";
 const siteUrl = Astro.site ?? new URL("https://dentalsiloe.netlify.app");
 const canonical = new URL(Astro.url.pathname, siteUrl).toString();
 const title = "Dental Siloé | Consultorio odontológico en Ate, Lima";
-const description = "Conoce Dental Siloé, consultorio odontológico en Ate, Lima. Consulta nuestra ubicación, horarios de atención y cómo solicitar una cita.";
+const description =
+  "Conoce Dental Siloé, consultorio odontológico en Ate, Lima. Consulta nuestra ubicación, horarios de atención y cómo solicitar una cita.";
 const socialImage = new URL("/og-dental-siloe.jpg", siteUrl).toString();
 
 // Se publica solo información conocida: sin nombres de profesionales,
@@ -24,11 +25,13 @@ const dentistStructuredData = {
     addressLocality: "Ate",
     addressRegion: "Lima",
     postalCode: "15498",
-    addressCountry: "PE"
+    addressCountry: "PE",
   },
-  hasMap: "https://www.google.com/maps/search/?api=1&query=Dental%20Silo%C3%A9%20Ate%20Lima"
+  hasMap:
+    "https://www.google.com/maps/search/?api=1&query=Dental%20Silo%C3%A9%20Ate%20Lima",
 };
 ---
+
 <!doctype html>
 <html lang="es-PE">
   <head>
@@ -40,8 +43,7 @@ const dentistStructuredData = {
     <link rel="canonical" href={canonical} />
     <meta name="theme-color" content="#082e61" />
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_PE" />
     <meta property="og:site_name" content="Dental Siloé" />
@@ -51,18 +53,41 @@ const dentistStructuredData = {
     <meta property="og:image" content={socialImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Dental Siloé, consultorio odontológico en Ate, Lima" />
+    <meta
+      property="og:image:alt"
+      content="Dental Siloé, consultorio odontológico en Ate, Lima"
+    />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImage} />
-    <link rel="preload" as="image" href="/fotos/hero-mobile.webp" type="image/webp" media="(max-width: 767px)" fetchpriority="high" />
+    <link
+      rel="preload"
+      as="image"
+      href="/fotos/hero-mobile.webp"
+      type="image/webp"
+      media="(max-width: 767px)"
+      fetchpriority="high"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- Carga no bloqueante: conserva las fuentes elegidas sin retrasar el render inicial. -->
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet" /></noscript>
-    <script type="application/ld+json" set:html={JSON.stringify(dentistStructuredData)} />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript
+      ><link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap"
+        rel="stylesheet"
+      /></noscript
+    >
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(dentistStructuredData)}
+    />
   </head>
   <body class="antialiased"><Navbar /><main><slot /></main></body>
 </html>
