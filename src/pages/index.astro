@@ -42,7 +42,7 @@ const mapEmbedUrl =
       <div class="hero-photo-wrap relative order-1 lg:order-2">
         <div class="hero-photo relative overflow-hidden rounded-[1.65rem] border-[5px] border-white bg-[#d7edfa] shadow-[0_25px_65px_rgba(14,67,130,.16)] sm:rounded-[3rem] sm:border-[7px]">
           <picture>
-            <source media="(max-width: 1023px)" srcset="/fotos/hero-mobile-propuesta-01.webp" type="image/webp" />
+            <source media="(max-width: 1023px)" srcset="/fotos/hero-mobile-propuesta-01.webp" type="image/webp" width="700" height="900" />
             <img src="/fotos/consultorio-hero.webp"
               alt="Imagen ilustrativa de atención odontológica con un profesional y una paciente"
               class="w-full object-cover object-center" width="1400" height="788" fetchpriority="high" decoding="async" />
@@ -121,6 +121,8 @@ const mapEmbedUrl =
       <figure class="gallery-feature rehab-feature mt-8 sm:mt-10">
         <img
           src="/antes-y-despues-rehabilitacion-oral.webp"
+          srcset="/antes-y-despues-rehabilitacion-oral-640.webp 640w, /antes-y-despues-rehabilitacion-oral.webp 1000w"
+          sizes="(max-width: 700px) calc(100vw - 38px), 641px"
           alt="Comparación visual de antes y después en un tratamiento de rehabilitación oral"
           loading="lazy"
           width="1000"
@@ -137,6 +139,8 @@ const mapEmbedUrl =
         <div class="absolute -left-5 -top-5 -z-0 h-[95%] w-[94%] rounded-[2.5rem] bg-[#d7f1ff]"></div>
         <img
           src="/fotos/hero-mobile.webp"
+          srcset="/fotos/hero-mobile-480.webp 480w, /fotos/hero-mobile.webp 655w"
+          sizes="(max-width: 540px) calc(100vw - 38px), 510px"
           alt="Entrada real de Dental Siloé con su señalización"
           loading="lazy"
           decoding="async"

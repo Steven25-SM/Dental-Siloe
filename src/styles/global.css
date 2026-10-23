@@ -1650,3 +1650,24 @@ body {
   #inicio .hero-content { max-width: 900px; }
   #inicio .hero-content h1 { max-width: 900px; }
 }
+
+
+/* Último ajuste CLS: la imagen del Hero cambia de proporción entre móvil
+   (700×900) y escritorio (1400×788). Reservar desde el primer layout su
+   espacio real evita desplazar el texto cuando se descarga el <picture>. */
+@media (max-width: 767px) {
+  #inicio .hero-photo,
+  #inicio .hero-photo picture,
+  #inicio .hero-photo img {
+    aspect-ratio: 7 / 9;
+  }
+  #inicio .hero-photo picture { display: block; }
+  #inicio .hero-photo img {
+    display: block;
+    width: 100%;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    object-fit: contain !important;
+  }
+}
