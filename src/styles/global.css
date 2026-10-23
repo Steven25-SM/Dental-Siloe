@@ -1587,3 +1587,66 @@ body {
     object-fit: contain !important;
   }
 }
+
+/* ============================================================
+   V11 — Monitores grandes (2K / QHD / 4K / ultrawide)
+   Progressive enhancement: sin cambios por debajo de 1920 px.
+   El contenido crece con límites legibles; el fondo del hero
+   mantiene cobertura completa sin barras laterales.
+   ============================================================ */
+@media (min-width: 1920px) {
+  .page-container {
+    width: min(1520px, calc(100% - 112px));
+  }
+  .section-space { padding-block: clamp(88px, 5.5vw, 116px); }
+  .section-heading h2 { font-size: clamp(4rem, 3.15vw, 4.8rem); }
+  .section-heading > p:not(.eyebrow) { font-size: 1.18rem; }
+  .eyebrow { font-size: .92rem; }
+  .service-photo { height: clamp(265px, 16vw, 315px); }
+  .service-card-body { padding: 34px 32px 38px; }
+  .service-card p { font-size: 1.08rem; }
+  .gallery-feature, #rehabilitacion .rehab-feature { width: min(100%, 1120px); }
+  .gallery-feature img { height: clamp(465px, 27vw, 560px); }
+  #nosotros .page-container > div:first-child { max-width: 610px; }
+  #nosotros .section-heading { max-width: 720px; }
+  #nosotros img { max-height: 680px; }
+  .contact-grid { max-width: 1420px; }
+  .location-heading { max-width: 860px; }
+  .map-frame iframe { height: 560px; }
+  .footer-grid { gap: 52px; }
+  #inicio .hero-content {
+    width: min(100%, 760px);
+    max-width: 760px;
+    transform: none;
+  }
+  #inicio .hero-content h1 { max-width: 760px; font-size: clamp(4rem, 3.4vw, 5.1rem); }
+  #inicio .hero-content > p:not(.eyebrow) { max-width: 650px; font-size: 1.25rem; }
+  #inicio .hero-layout { padding-top: 128px; padding-bottom: 66px; }
+  #inicio .hero-photo img { object-position: center 48%; }
+  header .nav-link { font-size: 1.03rem; }
+}
+@media (min-width: 2560px) {
+  .page-container { width: min(1820px, calc(100% - 160px)); }
+  .section-space { padding-block: clamp(110px, 4.5vw, 152px); }
+  .section-heading h2 { font-size: clamp(4.7rem, 2.8vw, 5.6rem); }
+  .section-heading > p:not(.eyebrow) { font-size: 1.3rem; }
+  .service-photo { height: 355px; }
+  .service-card h3 { font-size: 1.9rem; }
+  .service-card p { font-size: 1.19rem; }
+  .gallery-feature, #rehabilitacion .rehab-feature { width: min(100%, 1240px); }
+  .gallery-feature img { height: 620px; }
+  #nosotros .page-container > div:first-child { max-width: 680px; }
+  #nosotros .section-heading { max-width: 780px; }
+  .map-frame iframe { height: 650px; }
+  .contact-grid { max-width: 1640px; }
+  #inicio .hero-content { width: min(100%, 850px); max-width: 850px; }
+  #inicio .hero-content h1 { max-width: 850px; font-size: clamp(5rem, 2.5vw, 6rem); }
+  #inicio .hero-content > p:not(.eyebrow) { max-width: 720px; font-size: 1.4rem; }
+  #inicio .hero-layout { padding-top: 152px; padding-bottom: 85px; }
+}
+/* En pantallas ultrapanorámicas, conserva las proporciones de lectura. */
+@media (min-width: 3440px) {
+  .page-container { width: min(1920px, calc(100% - 192px)); }
+  #inicio .hero-content { max-width: 900px; }
+  #inicio .hero-content h1 { max-width: 900px; }
+}
