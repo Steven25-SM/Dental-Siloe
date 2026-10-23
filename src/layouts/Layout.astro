@@ -1,5 +1,7 @@
 ---
-import "../styles/global.css";
+// Vite procesa Tailwind y entrega el CSS compilado como texto.
+// Al insertarlo en <head>, evitamos la petición CSS bloqueante de /_astro/.
+import criticalStyles from "../styles/global.css?inline";
 import Navbar from "../components/Navbar.astro";
 
 const siteUrl = Astro.site ?? new URL("https://dentalsiloe.netlify.app");
@@ -36,6 +38,7 @@ const dentistStructuredData = {
 <html lang="es-PE">
   <head>
     <meta charset="UTF-8" />
+    <style is:global set:html={criticalStyles} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -71,16 +74,17 @@ const dentistStructuredData = {
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Carga no bloqueante: conserva las fuentes elegidas sin retrasar el render inicial. -->
+    <!-- display=optional impide que una fuente tardía sustituya al fallback
+         a mitad del primer render y desplace el título del Hero. -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=optional"
       rel="stylesheet"
       media="print"
       onload="this.media='all'"
     />
     <noscript
       ><link
-        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=optional"
         rel="stylesheet"
       /></noscript
     >
